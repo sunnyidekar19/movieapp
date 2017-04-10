@@ -1,0 +1,46 @@
+<html>
+<head>
+<style>
+
+body {
+    
+    background-image: url("http://blogv1.interaktifhizmetler.com/admin/resimler/tyfgfg5336.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    margin-right: 200px;
+    background-attachment: fixed;
+}
+
+img {
+    
+    background-image: url("https://cdn.vectorstock.com/i/composite/27,85/design-elements-of-movie-theme-design-vector-662785.jpg");
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<h1>Details of Movie</h1>
+
+<body>
+<h3>Movie Details</h3>
+<p>Title: <%= @movie.Title %></p>
+<p>Year: <%= @movie.Year %></p
+<p>Released: <%= @movie.Released %></p>
+<p>Genre: <%= @movie.Genre %></p>
+<p>Director: <%= @movie.Director %></p>
+<p>Actors: <%= @movie.Actors %></p>
+<p>Plot: <%= @movie.Plot %></p>
+<p>Language: <%= @movie.Language %></p>
+<p>Country: <%= @movie.Country %></p>
+
+
+<p>Poster: <%= @movie.Poster %></p>
+
+
+<img src = <%= @movie.Poster %> width="400" height="300"> </p>
+
+<p>imdb_ID: <%= @movie.imdb_ID %></p>
+<p>Production: <%= @movie.Production %></p>
+
+</body>
+</html>

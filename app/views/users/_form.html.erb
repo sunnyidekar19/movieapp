@@ -1,0 +1,85 @@
+<h4>Begin your $5.00 a month subscription</h4>
+<form action="/users/charge" method="POST" id="payment-form">
+<span class="payment-errors"></span>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Card Number</label>
+        <input class="form-control" type="text" size="20" data-stripe="number" placeholder="4242424242424242"/>
+    </div>
+</div>
+<br>
+
+ 
+<div class="row">
+    <div class="col-xs-2">
+        <label>CVC</label>
+        <input type="text" data-stripe="cvc" class="form-control" placeholder="123"/>
+    </div>
+</div>
+<br>
+
+ 
+<div class="row">
+    <div class="col-xs-2">
+        <label>Expiration</label>
+    </div>
+</div>
+ <div class="row">
+    <div class="col-xs-1">
+        <label>MM</label>
+        <input class="form-control" type="text"  data-stripe="exp-month" placeholder="01"/>
+    </div>
+    <div class="col-xs-1">
+    <label>YYYY</label>
+    <input class="form-control" type="text"  data-stripe="exp-year" placeholder="2020"/>
+    </div>
+</div>
+
+<div class="row">
+<br/><button class="btn btn-primary" type="submit">Create Subscription</button>
+</div>
+</form>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript"> 
+    Stripe.setPublishableKey('pk_test_ZEZJ7vO3LgaXha7h5aJOYmFp');
+    
+    function stripeResponseHandler(status, response) {
+
+      // Grab the form:
+      var $form = $('#payment-form');
+    
+      if (response.error) { // Problem!
+    
+        // Show the errors on the form
+        $form.find('.payment-errors').text(response.error.message);
+        $form.find('button').prop('disabled', false); // Re-enable submission
+    
+      } else { // Token was created!
+    
+        // Get the token ID:
+        var token = response.id;
+    
+        // Insert the token into the form so it gets submitted to the server:
+        $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+    
+        // Submit the form:
+        $form.get(0).submit();
+    
+      }
+    }
+
+    jQuery(function($) {
+        $('#payment-form').submit(function(event) {
+        var $form = $(this);
+        
+        $form.find('button').prop('disabled', true);
+        
+        Stripe.card.createToken($form, stripeResponseHandler);
+        
+        return false;
+        });
+    });
+
+</script>
