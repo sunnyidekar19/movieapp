@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   get '/users/info', to: 'users#info'
   post '/users/charge', to: 'users#charge'
-  get '/users/cancel_subscription', to: 'users#cancel_subscription'
+  get '/users/cancel_subscription', to: 'users#cancel_subscription  '
 
   resources :movies
   # The priority is based upon order of creation: first created -> highest priority.
@@ -25,7 +25,11 @@ Rails.application.routes.draw do
    
    match 'searchmovie', to: 'info#infomovie', via: [:get, :post]
    
- 
+   
+   get '/morefeature', :controller=>'morefeatures', :action=>'Input'
+   get  '/send' => 'morefeatures#Output'
+   post '/send' => 'morefeatures#Output'
+   
    
    
    

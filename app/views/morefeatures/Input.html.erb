@@ -1,0 +1,13 @@
+<h1>Input Features</h1>
+
+
+ <%= form_tag "/send" do %>
+ 
+ 
+     <div class="field">
+     Latest Movies :
+     <%= check_box_tag 'movie[latest]', 'latest' %>
+     </div>
+     
+    <%= submit_tag "Select Yoga" %>
+    <% end %>

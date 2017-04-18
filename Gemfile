@@ -64,6 +64,8 @@ gem 'rails_12factor'
 end
 
 
+gem 'themoviedb', '~> 1.0', '>= 1.0.1'
+
 
 
 
