@@ -27,8 +27,17 @@ Rails.application.routes.draw do
    
    
    get '/morefeature', :controller=>'morefeatures', :action=>'Input'
-   get  '/send' => 'morefeatures#Output'
+   #get  '/send' => 'morefeatures#Output'
    post '/send' => 'morefeatures#Output'
+   
+   get  '/Latest' => 'morefeatures#Input'
+   post '/Latest' => 'morefeatures#Latest'
+   
+   get  '/Person' => 'morefeatures#Input'
+   post '/Person' => 'morefeatures#Person'
+   
+   
+   
    
    
    

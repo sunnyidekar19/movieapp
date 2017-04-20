@@ -1,4 +1,18 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-image: url("http://www.totalshortfilms.com/imagenes/principal.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+</style>
+</head>
+<body>
+  
 <%= form_for(@movie) do |f| %>
   <% if @movie.errors.any? %>
     <div id="error_explanation">
@@ -12,18 +26,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.text_field :imdbID %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  
-  
+
   <%= form_tag("searchmovie", method: "post") do %>
 	<%= label_tag(:search_movie, "Search for movie:") %>
 	<%= text_field_tag(:search_movie) %>
@@ -34,6 +37,9 @@
 
 
 <%= link_to 'More||'  ,   morefeature_path %> 
+
+</body>
+</html>
 
 
 

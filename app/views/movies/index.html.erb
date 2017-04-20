@@ -1,43 +1,59 @@
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Movies</h1>
 
+<head>
+<style>
 
- <%= form_tag("searchmovie", method: "post") do %>
-	<%= label_tag(:search_movie, "Search for movie:") %>
-	<%= text_field_tag(:search_movie) %>
-	<%= submit_tag("Search Movie") %>
-  <% end %>	
+body {
+    background-image: url("https://0.s3.envato.com/files/94164686/Cinematic%20Bgs%20Pack.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
 
+
+div.films {
+    background-color: black;
+    color: white;
+    margin: 20px 0 20px 0;
+    padding: 20px;
+}
+</style>
+</head>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Imdbid</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @movies.each do |movie| %>
+  
+<tbody>
+  
+     <% @movies.each do |movie| %>
       
+     <div class="films">
+       
+          <p> Title:- <%= movie.Title %></p>
+          <p> Plot:-  <%= movie.Plot %></p>
+          <p> Director:- <%= movie.Director %></p>
+          <p> Actors:- <%= movie.Actors %></p>
+          <p> Genre:- <%= movie.Genre %></p>
+          <p> Language:- <%= movie.Language %></p>
+          <p> Country:- <%= movie.Country %></p>
+          <p> Year:- <%= movie.Year %></p>
+          <p> Production:- <%= movie.Production %></p>
+          <p> Released:- <%= movie.Released %></p>
+          <p><img src = <%= movie.Poster %> width="400" height="300"></p>
       
-      <tr>
-        <td><%= movie.name %></td>
-        <td><%= movie.imdbID %></td>
-      debugger  
-        
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+         <%= link_to 'Show', movie %></td>
+         <%= link_to 'Edit', edit_movie_path(movie) %></td>
+         <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+         
+   
+      
+     </div> 
+      
+    
+    
     <% end %>
-  </tbody>
-</table>
+</tbody>
 
-<br>
-
-<%= link_to 'New Movie', new_movie_path %> ||
-
-
+<%= link_to 'New Movie', new_movie_path %> 

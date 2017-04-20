@@ -5,7 +5,7 @@ class MorefeaturesController < ApplicationController
     
       def  Output
          
-          if params[:movie][:latest].to_s.length > 0 then
+          if params[:movie][:upcoming].to_s.length > 0 then
                
              Tmdb::Api.key("c978035639534d35c2b47ebf1b47261e") 
              
@@ -129,6 +129,115 @@ class MorefeaturesController < ApplicationController
               @vote_average9 = @movie[9].vote_average
               @release_date9 = @movie[9].release_date
               @poster_path9  = @movie[9].poster_path
+          end
+           
+    end 
+        
+          # debugger
+           
+         
+      end
+
+
+
+    def  Latest
+         
+          if params[:movie][:latest].to_s.length > 0 then
+               
+             Tmdb::Api.key("c978035639534d35c2b47ebf1b47261e") 
+             
+             @movie   = Tmdb::Movie.latest
+           # debugger
+          end
+          
+       
+              @Title        = @movie.title
+              @overview     = @movie.overview
+              @status       = @movie.status
+    end
+    
+    
+     def  Person
+         
+          if params[:movie][:person].to_s.length > 0 then
+               
+             Tmdb::Api.key("c978035639534d35c2b47ebf1b47261e") 
+             
+             @movie   = Tmdb::Person.popular
+           # debugger
+          end
+          
+         iLength =  @movie.size
+         iLength =  iLength.to_i
+        # debugger
+         
+         @Title1 = "Null"
+        for iCounter in 0..iLength -1
+            
+              
+          
+              sIntegratedValue = @movie[iCounter -1]
+           #   debugger
+           
+           if  iCounter == 0 then
+                
+              @Name0        = @movie[0].name
+              @ProfilePath0 = @movie[0].profile_path
+              
+           end
+           
+            
+           if  iCounter == 1 then
+               
+              @Name1        = @movie[1].name
+              @ProfilePath1 = @movie[1].profile_path
+              
+           end
+           
+           
+          if  iCounter == 2 then
+              @Name2        = @movie[2].name
+              @ProfilePath2 = @movie[2].profile_path
+          end
+ 
+              
+           if  iCounter == 3 then
+              @Name3        = @movie[3].name
+              @ProfilePath3 = @movie[3].profile_path
+           end
+          
+          if  iCounter == 4 then
+              @Name4        = @movie[4].name
+              @ProfilePath4 = @movie[4].profile_path
+          end
+          
+          if  iCounter == 5 then
+              @Name5        = @movie[5].name
+              @ProfilePath5 = @movie[5].profile_path
+          end
+          
+          if  iCounter == 6 then
+              
+              @Name6        = @movie[6].name
+              @ProfilePath6 = @movie[6].profile_path
+          end
+          
+          if  iCounter == 7 then
+              
+              @Name7        = @movie[7].name
+              @ProfilePath7 = @movie[7].profile_path
+              
+          end
+          
+          if  iCounter == 8 then
+              
+              @Name8        = @movie[8].name
+              @ProfilePath8 = @movie[8].profile_path
+          end
+          
+          if  iCounter == 9 then
+              @Name9        = @movie[9].name
+              @ProfilePath9 = @movie[9].profile_path
           end
            
     end 

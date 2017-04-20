@@ -1,15 +1,92 @@
-<p id="notice"><%= notice %></p>
+<html>
+<head>
+<style>
+
+body {
+    
+    background-image: url("http://blogv1.interaktifhizmetler.com/admin/resimler/tyfgfg5336.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    margin-right: 200px;
+    background-attachment: fixed;
+}
+
+img {
+    
+    background-image: url("https://cdn.vectorstock.com/i/composite/27,85/design-elements-of-movie-theme-design-vector-662785.jpg");
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<h1>Details of Movie</h1>
+
+<body>
+<p>
+  <strong>Title:</strong>
+  <%= @movie.Title %>
+</p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Director:</strong>
+  <%= @movie.Director %>
+</p>
+
+<p>
+<p>
+  <strong>Cast:</strong>
   <%= @movie.Actors %>
 </p>
 
 <p>
-  <strong>Imdbid:</strong>
-  <%= @movie.imdbID %>
+  <strong>Genre:</strong>
+  <%= @movie.Genre %>
 </p>
+
+<p>
+  <strong>ImdbID:</strong>
+  <%= @movie.imdb_ID %>
+</p>
+
+<p>
+  <strong>Plot:</strong>
+  <%= @movie.Plot %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @movie.Language %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @movie.Country %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @movie.Year %>
+</p>
+
+<p>
+  <strong>Production:</strong>
+  <%= @movie.Production %>
+</p>
+
+<p>
+  <strong>Released:</strong>
+  <%= @movie.Released %>
+</p>
+
+<p>
+  <strong>Poster:</strong>
+  <img src = <%= @movie.Poster %> width="400" height="300">
+</p>
+
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> ||
 <%= link_to 'Back', movies_path %>||
+
+</body>
+</html>
 

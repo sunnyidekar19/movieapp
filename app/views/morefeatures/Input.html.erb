@@ -1,3 +1,22 @@
+
+<html>
+<head>
+<style>
+
+body {
+    
+    background-image: url("http://www.hdfever.fr/wp-content/uploads/2009/07/Pellicule.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 200px;
+    background-attachment: fixed;
+}
+
+
+</style>
+</head>
+
+
 <h1>Input Features</h1>
 
 
@@ -5,9 +24,37 @@
  
  
      <div class="field">
-     Latest Movies :
+     Upcoming Movies :
+     <%= check_box_tag 'movie[upcoming]', 'upcoming' %>
+     </div>
+
+    <%= submit_tag "Select Upcoming" %>
+ <% end %>
+    
+  <%= form_tag "/Latest" do %> 
+   
+     <div class="field">
+     Lasest Movies :
      <%= check_box_tag 'movie[latest]', 'latest' %>
      </div>
      
-    <%= submit_tag "Select Yoga" %>
-    <% end %>
+     <%= submit_tag "Select Latest" %>
+ 
+  <% end %>
+  
+    <%= form_tag "/Person" do %> 
+   
+     <div class="field">
+     Top Rated Personalities :
+     <%= check_box_tag 'movie[person]', 'person' %>
+     </div>
+     
+     <%= submit_tag "Select Person" %> 
+   <% end %>
+   
+   
+</body>
+</html>   
+   
+   
+   
